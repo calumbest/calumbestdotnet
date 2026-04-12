@@ -14,7 +14,7 @@ Personal blog built with Hugo, hosted on Cloudflare Pages.
 | Blog posts | `content/posts/` (Obsidian sees these via `~/Documents/Notes/Blog` symlink) |
 | About page | `content/about.md` |
 | New post template | `archetypes/default.md` |
-| Deploy config | `.github/workflows/deploy.yml` |
+| Publish script | `publish.sh` |
 
 ## How Posts Work
 
@@ -99,11 +99,26 @@ hugo --minify
 
 The dev server runs at http://localhost:1313 with live reload.
 
+## Publishing Workflow
+
+1. Write or edit a post in Obsidian (in the `Blog` folder, which symlinks to `content/posts/`)
+2. Set `draft: false` in the frontmatter when ready to publish
+3. Run `./publish.sh` from the repo root (or `./publish.sh "Add new post about X"`)
+4. Cloudflare Pages auto-builds and deploys within ~1 minute
+
+The `publish.sh` script stages `content/posts/`, commits, and pushes.
+
 ## Deployment
 
-Push to `main` on GitHub → Cloudflare Pages auto-builds with `hugo --minify` and deploys to calumbest.net.
+Cloudflare Pages is connected directly to the GitHub repo (calumbest/calumbestdotnet).
+On push to `main`, it builds with `hugo --minify` and deploys to calumbest.net.
 
-The GitHub Actions workflow is in `.github/workflows/deploy.yml`.
+## Obsidian Integration
+
+- Posts live in `content/posts/` in the repo
+- `~/Documents/Notes/Blog` is a symlink pointing to `content/posts/`
+- Obsidian's Templates plugin is configured with a "Blog Post" template in `~/Documents/Notes/Templates/`
+- To create a new post: In Obsidian, navigate to the Blog folder, create a new note, insert the "Blog Post" template
 
 ## File Structure
 
@@ -127,5 +142,6 @@ The GitHub Actions workflow is in `.github/workflows/deploy.yml`.
 │       ├── sidenotes.js
 │       └── copy-markdown.js
 ├── hugo.toml                      # Site configuration
+├── publish.sh                     # Commit & push posts
 └── CLAUDE.md                      # This file
 ```
