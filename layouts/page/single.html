@@ -1,6 +1,11 @@
 {{ define "main" }}
 <article class="page">
   <h1>{{ .Title }}</h1>
+  {{ if and (.GitInfo) (ne (.GitInfo.AuthorDate.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+    <div class="post-meta">
+      <span class="last-edited">Last updated {{ .GitInfo.AuthorDate.Format "January 2, 2006" }}</span>
+    </div>
+  {{ end }}
   <div class="page-content">
     {{ .Content }}
   </div>
