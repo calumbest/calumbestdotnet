@@ -1,0 +1,41 @@
+baseURL = "https://calumbest.net/"
+languageCode = "en-us"
+title = "Calum Best"
+
+# Use git commit dates for last-modified tracking
+enableGitInfo = true
+
+# Enable footnotes in Markdown (Goldmark default)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      footnote = true
+    [markup.goldmark.renderer]
+      unsafe = false
+
+# RSS feed
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page = ["HTML", "markdown"]
+
+# Custom output format: raw Markdown for "Copy as Markdown"
+[outputFormats]
+  [outputFormats.markdown]
+    mediaType = "text/markdown"
+    baseName = "index"
+    isPlainText = true
+    notAlternative = true
+
+# Pagination
+[pagination]
+  pagerSize = 50
+
+# Permalinks
+[permalinks]
+  posts = "/:slug/"
+
+# Site params
+[params]
+  description = ""
+  author = "Calum Best"

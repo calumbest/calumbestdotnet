@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="home">
+  <h1>{{ .Title | default "Posts" }}</h1>
+  <ul class="post-list">
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2006" }}</time>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
