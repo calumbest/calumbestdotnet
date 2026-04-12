@@ -252,6 +252,18 @@ a {
   padding-left: 1.5rem;
 }
 
+/* Make footnote ref numbers smaller and tighter */
+.post-content sup {
+  font-size: 0.65em;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.post-content sup a.footnote-ref {
+  text-decoration: none;
+  color: var(--color-link);
+}
+
 .footnotes li {
   margin-bottom: 0.5rem;
 }
