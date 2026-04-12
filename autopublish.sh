@@ -1,12 +1,9 @@
 #!/bin/bash
-# Auto-publish: called by launchd when files in content/posts/ change.
+# Auto-publish: runs daily at 4am via launchd.
 # Commits and pushes any changes to the website repo.
 
 set -e
 cd "$(dirname "$0")"
-
-# Wait a moment for file writes to finish (Obsidian may still be saving)
-sleep 2
 
 # Only proceed if there are actual changes
 git add -A
