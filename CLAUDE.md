@@ -11,14 +11,14 @@ Personal blog built with Hugo, hosted on Cloudflare Pages.
 | CSS | `static/css/style.css` |
 | Sidenotes JS | `static/js/sidenotes.js` |
 | Copy-as-Markdown JS | `static/js/copy-markdown.js` |
-| Blog posts | `content/posts/` (symlink to `~/Documents/Notes/Blog/`) |
+| Blog posts | `content/posts/` (Obsidian sees these via `~/Documents/Notes/Blog` symlink) |
 | About page | `content/about.md` |
 | New post template | `archetypes/default.md` |
 | Deploy config | `.github/workflows/deploy.yml` |
 
 ## How Posts Work
 
-Posts are Markdown files in `~/Documents/Notes/Blog/` (symlinked to `content/posts/`). They are written and edited in Obsidian.
+Posts are Markdown files in `content/posts/`. Obsidian sees them via a symlink at `~/Documents/Notes/Blog` → `content/posts/`.
 
 ### Frontmatter
 
@@ -110,7 +110,7 @@ The GitHub Actions workflow is in `.github/workflows/deploy.yml`.
 ```
 ├── archetypes/default.md          # New post template
 ├── content/
-│   ├── posts/ → ~/Documents/Notes/Blog/
+│   ├── posts/             # ~/Documents/Notes/Blog symlinks here
 │   └── about.md
 ├── layouts/
 │   ├── _default/
