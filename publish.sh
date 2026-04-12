@@ -5,9 +5,9 @@
 set -e
 cd "$(dirname "$0")"
 
-MSG="${1:-Update posts}"
+MSG="${1:-Update site}"
 
-git add content/posts/
+git add content/
 git diff --cached --quiet && echo "No changes to publish." && exit 0
 git commit -m "$MSG"
 git push
