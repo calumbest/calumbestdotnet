@@ -145,3 +145,14 @@ On push to `main`, it builds with `hugo --minify` and deploys to calumbest.net.
 ├── publish.sh                     # Commit & push posts
 └── CLAUDE.md                      # This file
 ```
+
+## Roadmap
+
+### Planned
+- **Email subscriptions** — let readers subscribe and get notified of new posts
+- **Commenting** — let readers leave comments on posts
+
+### Considering
+- **Tagging** — categorize posts by topic
+- **Search** — full-text search across posts
+- **Post descriptions** — show description text on the homepage or as subtitles on post pages
