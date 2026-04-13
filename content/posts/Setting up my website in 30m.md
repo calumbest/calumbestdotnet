@@ -16,8 +16,8 @@ So, the whole thing costs $12/year,[^2] and I'm deploying custom code instead of
 
 Things I'm excited about with the new design:
 - *Sidenotes!*[^1]
-- *Simple publishing.* I wanted it to be very easy for me to jot out a quick note and publish it right away, without dealing with an annoying user interface and clicking a bunch of buttons. Claude helped me a set up a system where I just write normal Markdown notes in [Obsidian](https://obsidian.md/), then click a checkbox to confirm a draft is ready to publish. Then, a script runs every morning and publishes new posts. The script also picks up edits to previous posts.
-- *Copy as Markdown.* Scroll to the bottom of any post and you'll see a "copy as markdown" button. This makes it easier for people to paste posts into AI chats.
+- *Simple publishing.* Claude helped me set up a system where I write normal Markdown notes in [Obsidian](https://obsidian.md/), then click a checkbox to confirm a draft is ready to publish. A script runs every morning and both publishes new posts and incorporates edits to existing posts. That means it's very easy for me jot out quick notes on my phone or desktop and publish them right away, without dealing with an annoying user interface and clicking a bunch of buttons.
+- *Copy as Markdown.* Scroll to the bottom of any post and you'll see a "copy as markdown" button. That makes it easier for people to paste posts into AI chats.
 
 I'll likely add email subscriptions after I write several more posts, but there's already an RSS feed (which Claude made without me asking, thanks Claude!). I'll also add commenting at some point.
 
