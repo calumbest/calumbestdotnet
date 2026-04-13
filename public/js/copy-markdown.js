@@ -11,14 +11,18 @@
     var mdUrl = btn.getAttribute('data-md-url');
     if (!mdUrl) return;
 
-    fetch(mdUrl)
+    var textPromise = fetch(mdUrl)
       .then(function (res) {
         if (!res.ok) throw new Error('Could not fetch markdown');
         return res.text();
       })
       .then(function (text) {
-        return navigator.clipboard.writeText(text.trim());
-      })
+        return new Blob([text.trim()], { type: 'text/plain' });
+      });
+
+    navigator.clipboard.write([
+      new ClipboardItem({ 'text/plain': textPromise })
+    ])
       .then(function () {
         btn.textContent = 'Copied!';
         btn.classList.add('copied');
