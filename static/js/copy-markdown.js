@@ -17,26 +17,27 @@
   // Pre-fetch the markdown content
   fetch(mdUrl)
     .then(function (res) {
-      if (!res.ok) throw new Error('Could not fetch markdown');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.text();
     })
     .then(function (text) {
       cachedText = text.trim();
     })
     .catch(function (err) {
-      console.error('Failed to pre-fetch markdown:', err);
+      console.error('[copy-md] pre-fetch failed:', err);
     });
 
   function fallbackCopy(text) {
     var textarea = document.createElement('textarea');
     textarea.value = text;
+    textarea.setAttribute('readonly', '');
     textarea.style.position = 'fixed';
     textarea.style.top = '0';
     textarea.style.left = '0';
     textarea.style.opacity = '0';
     document.body.appendChild(textarea);
     textarea.focus();
-    textarea.select();
+    textarea.setSelectionRange(0, text.length);
     try {
       document.execCommand('copy');
       return true;
@@ -58,6 +59,7 @@
 
   btn.addEventListener('click', function () {
     if (!cachedText) {
+      console.error('[copy-md] no cached text — pre-fetch may have failed');
       showResult(false);
       return;
     }
@@ -65,7 +67,10 @@
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(cachedText)
         .then(function () { showResult(true); })
-        .catch(function () { showResult(fallbackCopy(cachedText)); });
+        .catch(function (err) {
+          console.warn('[copy-md] clipboard API failed, trying fallback:', err);
+          showResult(fallbackCopy(cachedText));
+        });
     } else {
       showResult(fallbackCopy(cachedText));
     }
