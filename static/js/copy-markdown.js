@@ -23,9 +23,7 @@
     .then(function (text) {
       cachedText = text.trim();
     })
-    .catch(function (err) {
-      console.error('[copy-md] pre-fetch failed:', err);
-    });
+    .catch(function () {});
 
   function fallbackCopy(text) {
     var textarea = document.createElement('textarea');
@@ -59,7 +57,6 @@
 
   btn.addEventListener('click', function () {
     if (!cachedText) {
-      console.error('[copy-md] no cached text — pre-fetch may have failed');
       showResult(false);
       return;
     }
@@ -67,8 +64,7 @@
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(cachedText)
         .then(function () { showResult(true); })
-        .catch(function (err) {
-          console.warn('[copy-md] clipboard API failed, trying fallback:', err);
+        .catch(function () {
           showResult(fallbackCopy(cachedText));
         });
     } else {
