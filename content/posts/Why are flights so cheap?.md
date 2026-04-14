@@ -13,7 +13,7 @@ Why the difference?
 
 Seems like it’s mostly because of last-mile delivery. When you mail a package at a shipping office, it has to go through several layers of delivery, including probably several trucks of varying size and at least one airplane. Compare that to humans, which just take care of the last-mile transit themselves at much lower cost. Apparently last-mile delivery costs around 50% of total shipping costs on average, which I wouldn’t have predicted.
 
-Another factor is loading and unloading. At every (most?) stages of shipping, cargo must be loaded by hand, requiring dozens of workers. In contrast, humans load and unload themselves from every conveyance during the entire course of transit.
+Another factor is loading and unloading. At most stages of shipping, cargo must be loaded and unloaded by hand, which requires dozens of workers. In contrast, humans load and unload themselves from every conveyance during the entire course of transit.
 
 There’s probably stuff about cargo density and space utilization too, but my last-mile delivery is arriving and I have to load myself inside.
 
